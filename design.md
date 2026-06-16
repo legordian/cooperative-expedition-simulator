@@ -15,7 +15,7 @@ The document should be read as a design thesis rather than a detailed specificat
 Most co-op games do not really invoke the spirit of coordination and cooperation, and true cooperative satisfaction is missing. Why is that? Co-op games fall into several categories:
 - Co-op campaigns: Several people do something together, which could also be done alone
 - Role-based co-op: Each player has a unique role, which cannot dynamically be swapped, either due to artificial skills or information asymmetry.
-- Load-based co-op: No player is special, but there is to much to do for one player alone
+- Load-based co-op: No player is special, but there is too much to do for one player alone
 In all these, either roles become repetitive and specialists become isolated, or one player becomes a planner and the others are just executing, or everyone plays "next to" each other instead of together.
 
 Observation: real-world teams do not cooperate because of role restrictions. They cooperate because:
@@ -39,11 +39,11 @@ The game should reward:
 - Shared planning
 - Situational awareness
 - Risk management
-We propose to build a game where maintaining a accurate and complementary model of (game) reality is success-critical.
+We propose to build a game where maintaining an accurate and complementary model of (game) reality is success-critical.
 
 ## Core Principle
 
-**The game is about maintaining an accurate model of reality.**
+**The game is about maintaining an accurate model of reality.** The vessel, the world, the navigation system, and the engineering systems merely provide the context in which this activity takes place.
 
 Failure occurs when:
 - Reality changes.
@@ -62,35 +62,35 @@ What the game is not:
 
 ## Design cornerstones
 
-1. Emergent Specialization
-    - Every player can access every system.
-    - No artificial class restrictions.
-    - Specialization emerges from:
-      - Familiarity
-      - Context
-      - Workload
-      - Expertise
-2. Shared Operational Picture
-    - Players work from shared maps.
-    - Shared notes.
-    - Shared plans.
-    - Shared objectives.
-    - The operational picture is continuously updated.
-3. Reality is hidden and only indirectly revealed
-    - Systems report observations and do not reveal root causes
-    - Measurements may be incomplete or inaccurate.
-    - Players must investigate and form hypotheses.
-    - Plans are based on estimates rather than certainty.
-    - Verification is an ongoing activity.
-4. Expeditions, Not Battles
-    - Travel is the primary activity.
-    - Exploration is the primary purpose.
-    - [Maybe] Combat is an occasional disruption.
-6. Consequences Matter
-    - Resources are limited.
-    - Damage persists.
-    - Mistakes create future problems.
-    - Success creates future opportunities.
+#### 1. Emergent Specialization
+- Every player can access every system.
+- No artificial class restrictions.
+- Specialization emerges from:
+  - Familiarity
+  - Context
+  - Workload
+  - Expertise
+#### 2. Shared Operational Picture
+- Players work from shared maps.
+- Shared notes.
+- Shared plans.
+- Shared objectives.
+- The operational picture is continuously updated.
+#### 3. Reality is hidden and only indirectly revealed
+- Systems report observations and do not reveal root causes
+- Measurements may be incomplete or inaccurate.
+- Players must investigate and form hypotheses.
+- Plans are based on estimates rather than certainty.
+- Verification is an ongoing activity.
+#### 4. Expeditions, Not Battles
+- Travel is the primary activity.
+- Exploration is the primary purpose.
+- [Maybe] Combat is an occasional disruption.
+#### 5. Consequences Matter
+- Resources are limited.
+- Damage persists.
+- Mistakes create future problems.
+- Success creates future opportunities.
 
 ## Example
 
@@ -134,21 +134,21 @@ Many existing cooperative games contain elements of the desired experience, but 
 
 ### Examples
 
-1. Artemis
-    - Captures multi-station ship operation.
-    - Stations are largely independent and information is mostly reliable.
-2. Barotrauma
-    - Strong engineering and damage-control gameplay.
-    - Focuses on immediate crises rather than long-term expedition planning.
-3. Stormworks
-    - Excellent vehicle and systems simulation.
-    - Focuses on building and operating machines rather than collaborative diagnosis and decision-making.
-4. Space Station 13 / 14
-    - Rich emergent interactions.
-    - Social simulation tends to dominate operational simulation.
-5. Factorio
-    - Strong systems thinking and logistics.
-    - Cooperation is often parallelized rather than requiring a shared understanding.
+#### 1. Artemis
+- Captures multi-station ship operation.
+- Stations are largely independent and information is mostly reliable.
+#### 2. Barotrauma
+- Strong engineering and damage-control gameplay.
+- Focuses on immediate crises rather than long-term expedition planning.
+#### 3. Stormworks
+- Excellent vehicle and systems simulation.
+- Focuses on building and operating machines rather than collaborative diagnosis and decision-making.
+#### 4. Space Station 13 / 14
+- Rich emergent interactions.
+- Social simulation tends to dominate operational simulation.
+#### 5. Factorio
+- Strong systems thinking and logistics.
+- Cooperation is often parallelized rather than requiring a shared understanding.
 
 ### Goal
 
@@ -170,7 +170,7 @@ The game takes place in a fictional world on board a vessel. The goal of the gam
 
 The setting exists primarily to support the gameplay. The exact nature of the world is intentionally left open. For the sake of this discussion, the key gameplay-relevant elements are:
 - The world can be explored in two dimensions, short excursions in a third dimensions may be considered
-- The world has points of interest, which are sparsely distributed and small (see gamplay/navigation below)
+- The world has points of interest, which are sparsely distributed and small (see gameplay/navigation below)
 - There is a medium filling the world with varying density (see vessel below)
 - There is no gravity, an accelerated object may move indefinitely, with only a small braking effect of the medium (small on the scale of typical distances)
 - The world outside the points of interest is not survivable for the player outside the vessel
@@ -183,7 +183,7 @@ The vessel has sophisticated technical systems with high inter-connectivity. As 
   - A fuel system (tanks, lines, pumps, filters, valves etc.)
   - An electrical system (batteries, generators, busses, fuses, switches etc.)
   - (An) engine(s) with high-fidelity simulation (RPMs, temperatures, fuel-flow, throttle-response curves, lubrication etc.)
-  - An RCS system for low-speed maneuvres (with fuel, valves, pumps etc.)
+  - An RCS system for low-speed maneuvers (with fuel, valves, pumps etc.)
   - A hydraulics-driven control surface system for high-speed maneuvering (with pumps, pistons, lines, tanks etc.)
   - A life support system (CO2 scrubbers, O2 tanks, ventilation, control systems)
   - Radiation shielding by way of shielding tanks, in which fuel and/or water can be pumped (tanks, pumps, radiation sensors etc.)
@@ -192,7 +192,7 @@ The vessel has sophisticated technical systems with high inter-connectivity. As 
   - Auxiliary systems (lights, computers, etc.)
   - [Maybe] Weapons systems (turrets, ammunition etc.)
 
-All systems in the vessel can be damaged or fail, including sensors (which could freeze, fail low, fail high or nor read anything anymore) and displays. All failures have the expected consequences (i.e. if a bus goes offline, all connected systems stop functioning, a clogged fuel filter will lead to degraded engine performance etc.). The damage model is cascading, e.g. an overheating generator will fail eventually, disrupting the electrical system, which can take other systems offline and so on.
+All systems in the vessel can be damaged or fail, including sensors (which could freeze, fail low, fail high or not read anything anymore) and displays. All failures have the expected consequences (i.e. if a bus goes offline, all connected systems stop functioning, a clogged fuel filter will lead to degraded engine performance etc.). The damage model is cascading, e.g. an overheating generator will fail eventually, disrupting the electrical system, which can take other systems offline and so on.
 
 The ship has a low level of automation, e.g. a startup from cold&dark will involve ramping up the electrical system, enabling the fuel pumps, activating the engine starter and introducing fuel at the correct moment in the correct quantity.
 
@@ -200,7 +200,7 @@ The vessel provides a chart room and facilities to take positional fixes. While 
 
 ### The players tasks
 
-The game is ideally played with 3-4 players. The players do not have fixed roles, the need for coop arises from the complexity of the systems and the amount of tasks which need to be done. One player alone could theoretically do everything, but the layout of the controls would make it arduous and no successful for any stretch of time.
+The game is envisioned for crews of 3-4 players. The players do not have fixed roles, the need for coop arises from the complexity of the systems and the amount of tasks which need to be done. One player alone could theoretically do everything, but the layout of the controls would make it arduous and no successful for any stretch of time.
 
 ### Task clusters
 
@@ -219,7 +219,7 @@ The game is ideally played with 3-4 players. The players do not have fixed roles
   - The engineer runs the technical systems of the vessel, i.e. starts the engine, sets the throttle setting etc.
   - The engineer is responsible for the center of gravity and radiation shielding by pumping fuel and consumables to the appropriate tanks and shield layers.
   - He is responsible for diagnosing failures and repairing any damage.
-  - He is responsible for monitoring ablation and other wear and tear in the vesseland advising pilot and navigator accordingly.
+  - He is responsible for monitoring ablation and other wear and tear in the vessel and advising pilot and navigator accordingly.
   - The engineer advises the pilot on what parts and upgrades need to be purchased.
   - The engineer can build spare/replacement parts in case of failures.
 
@@ -230,7 +230,7 @@ The game starts in port, in the ship, which is reasonably equipped to start trav
 #### Port time
 
 - The pilot checks for available missions to execute (haul freight, chart region, mine, [maybe] combat).
-- The pilot buy/sells equipment/resources as needed and requested by the other crew members.
+- The pilot buys/sells equipment/resources as needed and requested by the other crew members.
 - The pilot selects a target and tells the navigator, who works out a route depending on available fuel, time constraints, shielding status, and weather reports.
 - The engineer works on systems which can only be taken offline in port.
 - The engineer takes in deliveries and stows them appropriately (i.e. exchanges empty oxygen tanks against new ones, re-fills hydraulics systems etc.).
@@ -238,7 +238,7 @@ The game starts in port, in the ship, which is reasonably equipped to start trav
 #### Getting underway
 
 - The pilot coordinates a departure slot with ATC.
-- The navigator enters the appropriate information into the corresponding systems, giving the pilot his navigational ques and the engineer the appropriate burntime and thrust.
+- The navigator enters the appropriate information into the corresponding systems, giving the pilot his navigational cues and the engineer the appropriate burn time and thrust.
 - The engineer starts up the systems and engines together with the other crew members.
 - The engineer coordinates the disconnection of the umbilicals.
 - The pilot asks for disconnection of the docking clamps and moves the vessel away from the port.
