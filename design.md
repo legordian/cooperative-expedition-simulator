@@ -166,12 +166,13 @@ While placing the primary focus on:
 
 ## Game outline
 
-The game takes place in a fictional world on board a vessel. The goal of the game is to explore the world, by harvesting resources from the world and using them to keep the vessel operating and improve it.
+A crew operates a complex vessel to acquire, maintain, and exploit information about an uncertain world.
 
 The setting exists primarily to support the gameplay. The exact nature of the world is intentionally left open. For the sake of this discussion, the key gameplay-relevant elements are:
 - The world can be explored in two dimensions, short excursions in a third dimensions may be considered
 - The world has points of interest, which are sparsely distributed and small (see gameplay/navigation below)
 - There is a medium filling the world with varying density (see vessel below)
+- The density distribution of the medium varies with time (gradually) and with weather events (suddenly)
 - There is no gravity, an accelerated object may move indefinitely, with only a small braking effect of the medium (small on the scale of typical distances)
 - The world outside the points of interest is not survivable for the player outside the vessel
 
@@ -198,30 +199,39 @@ The ship has a low level of automation, e.g. a startup from cold&dark will invol
 
 The vessel provides a chart room and facilities to take positional fixes. While the math is done automatically, the process still must be done by hand. The ship does not provide an automatic navigation or moving-map type facilities.
 
+The density distribution of the medium is not something which can be easily measured by the crew. The charting system will provide the currently available information on the density distribution, but as the distribution changes, the information becomes stale and the chart will deviate from the actual distribution. The crew can measure the density distribution, but it is a whole process, e.g. by measuring speed difference between two points and then deriving the (medium) density in between. The math and the chart updates is done by the game, but the process still needs to be performed by the crew. The density distribution on the chart also has a granularity, i.e. areas with many measurements will resolve short-range structures, while few measurements will only reveal medium density along longer ranges. Updates to the density distribution can be bought and sold in ports (where/if available).
+
+The ship is affected by the density it travels through: high-speed travel through dense medium ablates shielding which needs to be repaired, the medium slows the ship (not much, but enough so it has to be considered when navigating) and density gradients will affect vessel course (similar to light refraction). These affects need to be accounted for and corrected.
+
 ### The players tasks
 
-The game is envisioned for crews of 3-4 players. The players do not have fixed roles, the need for coop arises from the complexity of the systems and the amount of tasks which need to be done. One player alone could theoretically do everything, but the layout of the controls would make it arduous and no successful for any stretch of time.
+The game is envisioned for crews of 3-4 players. The players do not have fixed roles, the need for coop arises from the complexity of the systems and the amount of tasks which need to be done. One player alone could theoretically do everything, but the layout of the controls would make it arduous and not successful for any stretch of time.
 
 ### Task clusters
 
-- Piloting (depending on actual task load, this may be split to a fourth operations/planning role)
+- **Piloting** (depending on actual task load, this may be split to a fourth operations/planning role)
   - The pilot controls the ship in space with the RCS system or the control surfaces.
   - He asks for thrust levels and duration from the engineer.
+  - The pilot monitors outside conditions during travel (weather, points of interest)
   - The pilot handles the communication with ATC where needed.
   - The pilot monitors the newsfeeds and selects potentially interesting targets to visit.
-  - The pilot handles the crew's finances and trading when in port
-- Navigation
+  - The pilot handles the crew's finances and trading when in port.
+- **Navigation**
   - The navigator plots a course and an acceleration schedule to a given target.
   - To assist in this, a linear navigation calculator is provided, which will calculate thrust levels and durations for a linear accelerate-coast-break travel. Non-linear travel is possible, but needs to be estimated without a calculator.
   - The navigator is responsible for taking positional fixes by taking bearings, adding them to the chart and finding the intersect point. If traveling at high speeds, this may have to be done by two people to reduce errors.
+  - The navigator monitors speed and direction of travel
+  - The navigator performs density measurements of the medium
   - The navigator is responsible for entering the burn times and correctly timing the coast phase.
-- Engineering
+  - The navigator selects and dials in the appropriate navigational beacons for the pilot.
+- **Engineering**
   - The engineer runs the technical systems of the vessel, i.e. starts the engine, sets the throttle setting etc.
   - The engineer is responsible for the center of gravity and radiation shielding by pumping fuel and consumables to the appropriate tanks and shield layers.
   - He is responsible for diagnosing failures and repairing any damage.
   - He is responsible for monitoring ablation and other wear and tear in the vessel and advising pilot and navigator accordingly.
   - The engineer advises the pilot on what parts and upgrades need to be purchased.
   - The engineer can build spare/replacement parts in case of failures.
+- **Prospecting** an asteroid for should work similar to the operation of the vessel: the crew should work collaboratively to set up and operate scientific equipment to analyse valuable mineral content. Success and granularity of information will depend on equipment used, time invested and skills of the crew.  
 
 ### The overall game loop
 
@@ -260,7 +270,8 @@ The game starts in port, in the ship, which is reasonably equipped to start trav
 - Depending on destination, there may be an additional correction burn needed to find the target.
 - If the destination is a port, the loop can start again. Other possible destinations could be
   - Ships in distress
-  - Asteroids-like objects which can be mined by setting up mining equipment (similar complexity as the vessel).
+  - Asteroids-like objects which can be prospected by using scientific equipment (operated as a team, similarly to the vessel)
+  - Positions to deploy/collect nav beacons
   - Alien relics to be explored.
 - If the vessel has taken damage, a shutdown and repair at the destination may be necessary to diagnose and repair.
 - [Maybe] combat
@@ -268,6 +279,19 @@ The game starts in port, in the ship, which is reasonably equipped to start trav
   - In combat, the navigator would be a gunner, the ship would be strained and could take complex damage.
   - The engineer would have to keep shielding and engines running despite damage.
   - As combat can be very costly, fleeing should be considered as a viable option. This could result in becoming lost and may cost a lot of fuel.
+
+## High-level considerations, long-term playability
+
+The motivation for the players comes from the information economy. The vessel will explore the world and gather information, which is the main valuable resource in the game. It can be bought and sold (density maps, weather reports, nav beacon locations etc.) and can be gathered during travels.
+
+For long-term playability, a progression through different roles is envisaged:
+- **Short-range surveyor**: The crew starts out with a short-range capable ship, which will map out density distributions on known routes, map the position of nav beacons, and perform small shuttle services.
+- **Nav beacon maintainer**: The crew will deploy nav beacons to correct positions to define frequently travelled routes, and collect beacons which have been blown off position by weather events.
+- **Search & rescue capability**: The vessel can be upgraded to allow for search and rescue operations, looking for lost/damaged ships, sometimes in adverse conditions.
+- **Prospecting**: Look for valuable resources to mine. Note that mining itself may not be a main activity, rather the information about the mineral composition, position, accessibility etc. may be sold or a claim entered which can then be sold or leased.
+- **Long-range exploration**: The vessel has long-range, deep space capability which allows for far reaching exploration beyond the edge of the known in-game world, discovering new artifacts and points of interest.
+
+This progression will provide a steady flow of new systems and skills to learn, and new areas and activities to discover and explore.
 
 ## Open questions
 
